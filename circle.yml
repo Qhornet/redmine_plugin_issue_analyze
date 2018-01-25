@@ -5,7 +5,7 @@ test:
   pre: 
     - echo "-----start test-----"
   override:    
-    - echo "-----Hellow test-----"
+    - echo "-----Hello test-----"
   post: 
     - echo "-----end test-----"
     
