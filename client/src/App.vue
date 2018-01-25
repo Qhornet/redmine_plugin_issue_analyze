@@ -13,7 +13,7 @@ export default {
   components: {
     AbandonedTicketsChartWrapper
   },
-  data () {
+  data: function() {
     return {
       title: 'チケット分析'
     }
