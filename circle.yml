@@ -1,6 +1,3 @@
 machine:
   timezone: Asia/Tokyo
   environment:
-test:
-  override:
-  post:
