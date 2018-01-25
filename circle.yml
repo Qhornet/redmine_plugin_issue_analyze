@@ -5,7 +5,7 @@ test:
   pre: 
     - echo "-----start test-----"
   override:    
-    - echo "-----Hello test-----"
+    - ruby test/functional/issue_analyses_controller_test.rb
   post: 
     - echo "-----end test-----"
     
