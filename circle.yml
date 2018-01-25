@@ -1,0 +1,11 @@
+machine:
+  timezone: Asia/Tokyo
+  environment:
+test:
+  pre: 
+    - echo "-----start test-----"
+  override:    
+    - ruby test/test_helper.rb
+  post: 
+    - echo "-----end test-----"
+    
