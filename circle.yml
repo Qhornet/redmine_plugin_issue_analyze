@@ -1,6 +1,7 @@
 machine:
   timezone: Asia/Tokyo
-  ruby: version: 2.2.6
+  ruby: 
+    version: 2.2.6
 test:
   pre: 
     - echo "-----start test-----"
