@@ -1,11 +1,11 @@
 machine:
   timezone: Asia/Tokyo
-  ruby: version: 2.1.3
+  ruby: version: 2.2.6
 test:
   pre: 
     - echo "-----start test-----"
   override:    
-    - ruby test/test_helper.rb
+    - ruby test/functional/issue_analyses_controller_test.rb
   post: 
     - echo "-----end test-----"
     
