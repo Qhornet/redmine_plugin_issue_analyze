@@ -1,11 +1,16 @@
 machine:
   timezone: Asia/Tokyo
-  environment:
+  ruby: 
+    version: 2.2.6
+dependencies:
+  pre:
+    - gem uninstall bundler
+    - gem install bundler --pre
 test:
   pre: 
     - echo "-----start test-----"
   override:    
-    - ruby test/test_helper.rb
+    - ruby test/functional/issue_analyses_controller_test.rb
   post: 
     - echo "-----end test-----"
     
