@@ -1,25 +1,14 @@
 <template>
-  <div id="redmine_plugin_issue_analyze_app_app">
-    <h3>{{ title }}</h3>
-    <abandoned-tickets-chart-wrapper></abandoned-tickets-chart-wrapper>
-  </div>
+  <issue-analyze-view></issue-analyze-view>
 </template>
 
 <script>
-import AbandonedTicketsChartWrapper from './components/AbandonedTicketsChartWrapper'
+import IssueAnalyzeView from './components/IssueAnalyzeView'
 
 export default {
   name: 'app',
   components: {
-    AbandonedTicketsChartWrapper
-  },
-  data: function() {
-    return {
-      title: 'チケット分析'
-    }
+    IssueAnalyzeView
   }
 }
 </script>
-
-<style>
-</style>

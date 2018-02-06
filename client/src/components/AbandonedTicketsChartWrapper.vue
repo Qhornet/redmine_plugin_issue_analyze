@@ -1,9 +1,6 @@
 <template>
   <div id="abandoned-tickets-chart">
-    <h4>放置チケットグラフ</h4>
-    <div>
-      <abandoned-tickets-chart></abandoned-tickets-chart>
-    </div>
+    <abandoned-tickets-chart></abandoned-tickets-chart>
   </div>
 </template>
 
