@@ -2,6 +2,10 @@ machine:
   timezone: Asia/Tokyo
   ruby: 
     version: 2.2.6
+dependencies:
+  pre:
+    - gem uninstall bundler
+    - gem install bundler --pre
 test:
   pre: 
     - echo "-----start test-----"
