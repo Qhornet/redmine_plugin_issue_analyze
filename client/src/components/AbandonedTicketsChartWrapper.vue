@@ -1,6 +1,6 @@
 <template>
   <div id="abandoned-tickets-chart">
-    <abandoned-tickets-chart></abandoned-tickets-chart>
+    <abandoned-tickets-chart @click-bar-event="clickBar"></abandoned-tickets-chart>
   </div>
 </template>
 
@@ -30,6 +30,11 @@ export default {
   },
   mounted: function() {
     console.log(gon.leftDays)
+  },
+  methods: {
+    clickBar: function(month) {
+      console.log(month)
+    }
   }
 }
 </script>
