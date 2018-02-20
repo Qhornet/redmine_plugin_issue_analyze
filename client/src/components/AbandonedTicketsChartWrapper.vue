@@ -1,11 +1,13 @@
 <template>
   <div id="abandoned-tickets-chart">
     <abandoned-tickets-chart @click-bar-event="clickBar"></abandoned-tickets-chart>
+    <abandoned-ticket-list :list-visible="listVisible"></abandoned-ticket-list>
   </div>
 </template>
 
 <script>
 import AbandonedTicketsChart from './AbandonedTicketsChart'
+import AbandonedTicketList from './AbandonedTicketList'
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('develop')
@@ -26,14 +28,25 @@ if (process.env.NODE_ENV !== 'production') {
 export default {
   name: 'abandoned-tickets-chart-wrapper',
   components: {
-    AbandonedTicketsChart
+    AbandonedTicketsChart,
+    AbandonedTicketList
   },
-  mounted: function() {
-    console.log(gon.leftDays)
+  data: function() {
+    return {
+      listVisible: false
+    }
   },
+  // mounted: function() {
+  //   console.log(gon.leftDays)
+  // },
   methods: {
     clickBar: function(month) {
       console.log(month)
+      if (month === 20) {
+        this.listVisible = true
+      } else {
+        this.listVisible = false
+      }
     }
   }
 }
