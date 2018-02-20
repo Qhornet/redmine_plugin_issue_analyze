@@ -5,6 +5,12 @@ machine:
 dependencies:
   pre:
     - gem install bundler --pre
+database:
+  pre:
+    - mv config/database.yml.ci config/database.yml
+  override:
+    - bundle exec rake db:create db:schema:load RAILS_ENV=test
+    - bundle exec rake db:migrate RAILS_ENV=test
 test:
   pre: 
     - echo "-----start test-----"
