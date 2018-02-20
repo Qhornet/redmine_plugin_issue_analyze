@@ -1,3 +1,22 @@
 machine:
   timezone: Asia/Tokyo
-  environment:
+  ruby: 
+    version: 2.2.6
+dependencies:
+  pre:
+    - gem install bundler --pre
+database:
+  pre:
+    - mv config/database.yml.ci config/database.yml
+  override:
+    - bundle exec rake db:create db:schema:load RAILS_ENV=test
+    - bundle exec rake db:migrate RAILS_ENV=test
+test:
+  pre: 
+    - echo "-----start test-----"
+  override:
+    - bundle exec rspec spec/
+    - ruby spec/controllers/issue_analyses_controller_spec.rb
+  post: 
+    - echo "-----end test-----"
+    
