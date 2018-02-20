@@ -1,6 +1,9 @@
 <template>
   <div id="abandoned-tickets-chart">
-    <abandoned-tickets-chart></abandoned-tickets-chart>
+    <h4>放置チケットグラフ</h4>
+    <div>
+      <abandoned-tickets-chart :myMessage1="parentData1" :myMessage2="parentData2"></abandoned-tickets-chart>
+    </div>
   </div>
 </template>
 
@@ -25,13 +28,16 @@ if (process.env.NODE_ENV !== 'production') {
 
 export default {
   name: 'abandoned-tickets-chart-wrapper',
-  components: {
-    AbandonedTicketsChart
-  },
-  mounted: function() {
-    console.log(gon.leftDays)
-  }
+  components: { AbandonedTicketsChart },
+   data: function () {
+    return {
+    
+      parentData1 : Object.keys(gon.leftDays.count),
+      parentData2 :Object.values(gon.leftDays.count)
+     
+    }
 }
+
 </script>
 
 <style>
