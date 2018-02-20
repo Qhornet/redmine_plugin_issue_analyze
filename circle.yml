@@ -8,7 +8,8 @@ dependencies:
 test:
   pre: 
     - echo "-----start test-----"
-  override:    
+  override:
+    - bundle exec rspec spec/
     - ruby spec/controllers/issue_analyses_controller_spec.rb
   post: 
     - echo "-----end test-----"
