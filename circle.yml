@@ -9,7 +9,7 @@ test:
   pre: 
     - echo "-----start test-----"
   override:    
-    - ruby test/functional/issue_analyses_controller_test.rb
+    - ruby spec/controllers/issue_analyses_controller_spec.rb
   post: 
     - echo "-----end test-----"
     
