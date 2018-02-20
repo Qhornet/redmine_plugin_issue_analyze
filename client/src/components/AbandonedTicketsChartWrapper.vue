@@ -9,8 +9,7 @@
 import AbandonedTicketsChart from './AbandonedTicketsChart'
 import AbandonedTicketList from './AbandonedTicketList'
 
-if (process.env.NODE_ENV !== 'production') {
-  console.log('develop')
+if (process.env.NODE_ENV === 'development') {
   var gon = {
     leftDays: {
       max_left_days: 10,
@@ -36,13 +35,10 @@ export default {
       listVisible: false
     }
   },
-  // mounted: function() {
-  //   console.log(gon.leftDays)
-  // },
   methods: {
-    clickBar: function(month) {
-      console.log(month)
-      if (month === 20) {
+    clickBar: function(leftDays) {
+      console.log(leftDays)
+      if (leftDays === 20) {
         this.listVisible = true
       } else {
         this.listVisible = false

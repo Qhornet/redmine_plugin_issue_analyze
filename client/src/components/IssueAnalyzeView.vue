@@ -12,7 +12,6 @@
 <script>
 import AbandonedTicketsChartWrapper from './AbandonedTicketsChartWrapper'
 
-console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'development') {
   var gon = {
     leftDays: {
