@@ -4,18 +4,21 @@ import { Bar } from 'vue-chartjs'
 export default({
   extends: Bar,
   name: 'abandoned-tickets-chart',
+  props: ['myMessage1','myMessage2'],
+  
+  
   data: function() {
-    return {
-      datacollection: {
-        labels: ['January', 'February', 'March'],
+      return {
+        datacollection: {
+        labels: this.myMessage1,
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: '#f87979',
+            label:'test1',
+            backgroundColor: '#dda0dd',
             pointBackgroundColor: 'white',
             borderWidth: 1,
             pointBorderColor: '#249EBF',
-            data: [40, 20, 30]
+            data: this.myMessage2
           }
         ]
       },
@@ -43,5 +46,6 @@ export default({
   mounted: function() {
     this.renderChart(this.datacollection, this.options)
   }
+  
 })
 </script>
