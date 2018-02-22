@@ -4,21 +4,17 @@ import { Bar } from 'vue-chartjs'
 export default({
   extends: Bar,
   name: 'abandoned-tickets-chart',
-  data: function() {
-    return {
-      data: [40, 20, 30]
-    }
-  },
+  props: ['myMessage1','myMessage2'],
   mounted: function() {
     const datacollection = {
-      labels: ['January', 'February', 'March'],
+      labels: this.myMessage1,
       datasets: [{
-          label: 'Data One',
-          backgroundColor: '#f87979',
-          pointBackgroundColor: 'white',
-          borderWidth: 1,
-          pointBorderColor: '#249EBF',
-          data: this.data
+        label:'test1',
+        backgroundColor: '#dda0dd',
+        pointBackgroundColor: 'white',
+        borderWidth: 1,
+        pointBorderColor: '#249EBF',
+        data: this.myMessage2
       }]
     }
 
@@ -43,7 +39,7 @@ export default({
       maintainAspectRatio: false,
       onClick: function(e, el) {
         if (! el || el.length === 0) return
-        self.onClick(self.data[el[0]._index])
+        self.onClick(self.myMessage2[el[0]._index])
       }
     }
     this.renderChart(datacollection, options)
@@ -53,5 +49,6 @@ export default({
       this.$emit('click-bar-event', month)
     }
   }
+
 })
 </script>

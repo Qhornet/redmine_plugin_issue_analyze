@@ -1,7 +1,10 @@
 <template>
   <div id="abandoned-tickets-chart">
-    <abandoned-tickets-chart @click-bar-event="clickBar"></abandoned-tickets-chart>
-    <abandoned-ticket-list :list-visible="listVisible"></abandoned-ticket-list>
+    <h4>放置チケットグラフ</h4>
+    <div>
+      <abandoned-tickets-chart @click-bar-event="clickBar" :myMessage1="parentData1" :myMessage2="parentData2"></abandoned-tickets-chart>
+      <abandoned-ticket-list :list-visible="listVisible"></abandoned-ticket-list>
+    </div>
   </div>
 </template>
 
@@ -32,7 +35,9 @@ export default {
   },
   data: function() {
     return {
-      listVisible: false
+      listVisible: false,
+      parentData1 : Object.keys(gon.leftDays.count),
+      parentData2 :Object.values(gon.leftDays.count)
     }
   },
   methods: {
@@ -46,6 +51,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>

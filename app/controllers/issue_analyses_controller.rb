@@ -17,6 +17,14 @@ class IssueAnalysesController < ApplicationController
 
     gon.leftDays = data
   end
+  
+  def left_issues
+    day = Date.today - params[:count].to_i
+    issues = Issue.includes(:project).where(projects: { identifier: params[:project_id]})
+    issues = issues.includes(:status).where(issue_statuses: { is_closed: false })
+    issues = issues.where(updated_on: day...(day + 1))
+    render json: issues, status: 200
+  end
 
   private
 
