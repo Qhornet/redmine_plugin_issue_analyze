@@ -39,7 +39,7 @@ export default({
       maintainAspectRatio: false,
       onClick: function(e, el) {
         if (! el || el.length === 0) return
-        self.onClick(self.myMessage2[el[0]._index])
+        self.onClick(parseInt(self.myMessage1[el[0]._index]))
       }
     }
     this.renderChart(datacollection, options)
