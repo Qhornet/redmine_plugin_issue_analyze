@@ -4,13 +4,19 @@ machine:
     version: 2.2.6
 dependencies:
   pre:
-    - gem uninstall bundler
     - gem install bundler --pre
+database:
+  pre:
+    - mv config/database.yml.ci config/database.yml
+  override:
+    - bundle exec rake db:create db:schema:load RAILS_ENV=test
+    - bundle exec rake db:migrate RAILS_ENV=test
 test:
   pre: 
     - echo "-----start test-----"
-  override:    
-    - ruby test/functional/issue_analyses_controller_test.rb
+  override:
+    - bundle exec rspec spec/
+    - ruby spec/controllers/issue_analyses_controller_spec.rb
   post: 
     - echo "-----end test-----"
     
