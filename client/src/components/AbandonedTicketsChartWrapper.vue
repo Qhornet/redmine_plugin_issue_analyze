@@ -54,7 +54,7 @@ export default {
             id: issue.id,
             status: issue.status_name,
             subject: issue.subject,
-            assigned: issue.assigned_to_lastname + issue.assigned_to_firstname
+            assigned: (issue.assigned_to_lastname === null && issue.assigned_to_firstname === null) ? "" : issue.assigned_to_lastname + issue.assigned_to_firstname
           })
         }
       } catch (error) {
