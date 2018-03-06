@@ -1,7 +1,5 @@
 <template>
   <div id="issue-analyze-view">
-    <h3>{{ title }}</h3>
-    <h4>放置チケットグラフ</h4>
     <select :model="countSelected">
       <option v-for="count in counts" value="count" :key="count">{{ count }}日</option>
     </select>
@@ -36,7 +34,6 @@ export default {
   data: function() {
     const counts = ['-'].concat(Object.keys(gon.leftDays.count))
     return {
-      title: 'チケット分析',
       countSelected: '-',
       counts: counts
     }
