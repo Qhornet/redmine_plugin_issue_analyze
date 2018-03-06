@@ -4,3 +4,4 @@ ja:
     index:
       title: "チケット分析ビュー"
       left_issues_graph: "放置チケットグラフ"
+  issue_analyses_name: "チケット分析"

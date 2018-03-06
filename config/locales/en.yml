@@ -4,3 +4,4 @@ en:
     index:
       title: "Issues Analyses View"
       left_issues_graph: "Left Issues Graph"
+  issue_analyses_name: "Issue Analyses"
