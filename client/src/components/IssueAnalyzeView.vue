@@ -3,7 +3,7 @@
     <h3>{{ title }}</h3>
     <h4>放置チケットグラフ</h4>
     <select :model="countSelected">
-      <option v-for="count in counts" value="count">{{ count }}日</option>
+      <option v-for="count in counts" value="count" :key="count">{{ count }}日</option>
     </select>
     <abandoned-tickets-chart-wrapper></abandoned-tickets-chart-wrapper>
   </div>
@@ -12,8 +12,7 @@
 <script>
 import AbandonedTicketsChartWrapper from './AbandonedTicketsChartWrapper'
 
-console.log(process.env.NODE_ENV)
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'production') {
   var gon = {
     leftDays: {
       max_left_days: 10,
