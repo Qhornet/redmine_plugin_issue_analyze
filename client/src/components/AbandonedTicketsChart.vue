@@ -9,9 +9,9 @@ export default({
     const datacollection = {
       labels: this.myMessage1,
       datasets: [{
-        label:'test1',
-        backgroundColor: '#dda0dd',
-        pointBackgroundColor: 'white',
+        label:'放置チケット',
+        backgroundColor: "rgba(75,192,192,0.4)",
+        pointBackgroundColor: "rgba(75,192,192,1)",
         borderWidth: 1,
         pointBorderColor: '#249EBF',
         data: this.myMessage2
@@ -27,11 +27,24 @@ export default({
           },
           gridLines: {
             display: true
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'チケット数',
+            fontSize: 14
           }
         }],
         xAxes: [ {
+          ticks: {
+            callback: function(value) { return value = value + '日'}
+          },
           gridLines: {
             display: false
+          },
+           scaleLabel: {
+            display: true,
+            labelString: '放置日数',
+            fontSize: 14
           }
         }]
       },
