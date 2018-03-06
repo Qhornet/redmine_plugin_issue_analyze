@@ -23,7 +23,20 @@ class IssueAnalysesController < ApplicationController
     issues = Issue.includes(:project).where(projects: { identifier: params[:project_id]})
     issues = issues.includes(:status).where(issue_statuses: { is_closed: false })
     issues = issues.where(updated_on: day...(day + 1))
-    render json: issues, status: 200
+    
+    issue_list = issues.collect do |issue|
+      {
+        id: issue.id,
+        status_id: issue.status_id,
+        status_name: issue.status.name,
+        subject: issue.subject,
+        assigned_to_id: issue.assigned_to_id,
+        assigned_to_firstname: (issue.assigned_to.nil?) ? nil : issue.assigned_to.firstname,
+        assigned_to_lastname: (issue.assigned_to.nil?) ? nil : issue.assigned_to.lastname,
+      }
+    end
+
+    render json: issue_list, status: 200
   end
 
   private
