@@ -45,7 +45,7 @@ export default {
   methods: {
     async clickBar(leftDays) {
       try {
-        const response = await axios.get(location.pathname + '/left_issues?count=' + (leftDays - 1))
+        const response = await axios.get(location.pathname + '/left_issues?count=' + leftDays)
         this.listVisible = true
 
         this.listData = []
