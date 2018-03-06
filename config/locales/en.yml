@@ -1,4 +1,6 @@
 # English strings go here for Rails i18n
 en:
-  # my_label: "My label"
-  issue_analyses_name: "Issue Analyses"
+  issue_analyses:
+    index:
+      title: "Issues Analyses View"
+      left_issues_graph: "Left Issues Graph"
