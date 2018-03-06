@@ -52,9 +52,9 @@ export default {
         for (let issue of response.data) {
           this.listData.push({
             id: issue.id,
-            status: issue.status_id,
+            status: issue.status_name,
             subject: issue.subject,
-            assigned: issue.assigned_to_id
+            assigned: issue.assigned_to_lastname + issue.assigned_to_firstname
           })
         }
       } catch (error) {

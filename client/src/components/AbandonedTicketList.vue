@@ -13,9 +13,9 @@
         <tbody>
           <tr v-for="(issue, index) in listData" :key="issue.id" class="issue" :class="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
             <td class="id"><a :href="'/issues/' + issue.id">{{issue.id}}</a></td>
-            <td class="status">{{issue.status_name}}</td>
+            <td class="status">{{issue.status}}</td>
             <td class="subject"><a :href="'/issues/' + issue.id">{{issue.subject}}</a></td>
-            <td class="assigned_to">{{issue.assigned_to_lastname}} {{issue.assigned_to_firstname}}</td>
+            <td class="assigned_to">{{issue.assigned}}</td>
           </tr>
         </tbody>
       </table>
