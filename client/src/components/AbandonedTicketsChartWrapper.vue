@@ -2,7 +2,7 @@
   <div id="abandoned-tickets-chart">
     <div>
       <abandoned-tickets-chart @click-bar-event="clickBar" :myMessage1="parentData1" :myMessage2="parentData2" class="qh-chart"></abandoned-tickets-chart>
-      <abandoned-ticket-list :list-visible="listVisible" :list-data="listData"></abandoned-ticket-list>
+      <abandoned-ticket-list :list-visible="listVisible" :list-data="listData" :hostName="hostName></abandoned-ticket-list>
     </div>
   </div>
 </template>
@@ -12,20 +12,21 @@ import AbandonedTicketsChart from './AbandonedTicketsChart'
 import AbandonedTicketList from './AbandonedTicketList'
 import axios from 'axios'
 
-// if (process.env.NODE_ENV !== 'production') {
-//   var gon = {
-//     leftDays: {
-//       max_left_days: 10,
-//       count: {
-//         '0': 3,
-//         '1': 5,
-//         '2': 3,
-//         '4': 8,
-//         '10': 2
-//       }
-//     }
-//   }
-// }
+if (process.env.NODE_ENV !== 'production') {
+  var gon = {
+    hostName: 'localhost:3000',
+    leftDays: {
+      max_left_days: 10,
+      count: {
+        '0': 3,
+        '1': 5,
+        '2': 3,
+        '4': 8,
+        '10': 2
+      }
+    }
+  }
+}
 
 export default {
   name: 'abandoned-tickets-chart-wrapper',
@@ -37,6 +38,7 @@ export default {
     return {
       listVisible: false,
       listData: [],
+      hostName: gon.hostName,
       parentData1 : Object.keys(gon.leftDays.count),
       parentData2 :Object.values(gon.leftDays.count)
     }

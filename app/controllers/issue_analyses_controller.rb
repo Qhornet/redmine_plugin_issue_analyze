@@ -16,6 +16,7 @@ class IssueAnalysesController < ApplicationController
     end
 
     gon.leftDays = data
+    gon.hostName = Setting.host_name
   end
   
   def left_issues
