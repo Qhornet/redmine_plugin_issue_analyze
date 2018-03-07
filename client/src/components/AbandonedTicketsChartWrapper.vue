@@ -13,7 +13,6 @@ import AbandonedTicketList from './AbandonedTicketList'
 import axios from 'axios'
 
 // if (process.env.NODE_ENV !== 'production') {
-//   console.log('develop')
 //   var gon = {
 //     leftDays: {
 //       max_left_days: 10,
