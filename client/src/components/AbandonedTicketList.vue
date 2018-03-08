@@ -12,9 +12,9 @@
         </thead>
         <tbody>
           <tr v-for="(issue, index) in listData" :key="issue.id" class="issue" :class="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
-            <td class="id"><a :href="location.protocol + hostName + '/issues/' + issue.id">{{issue.id}}</a></td>
+            <td class="id"><a :href="protocol + '//' + hostName + '/issues/' + issue.id">{{issue.id}}</a></td>
             <td class="status">{{issue.status}}</td>
-            <td class="subject"><a :href="location.protocol + hostName + '/redmine/issues/' + issue.id">{{issue.subject}}</a></td>
+            <td class="subject"><a :href="protocol + '//' + hostName + '/issues/' + issue.id">{{issue.subject}}</a></td>
             <td class="assigned_to">{{issue.assigned}}</td>
           </tr>
         </tbody>
@@ -26,6 +26,11 @@
 <script>
 export default {
   name: 'abandoned-ticket-list',
-  props: ['listVisible', 'listData', 'hostName']
+  props: ['listVisible', 'listData', 'hostName'],
+  data: function() {
+    return {
+      protocol: window.location.protocol
+    }
+  }
 }
 </script>
