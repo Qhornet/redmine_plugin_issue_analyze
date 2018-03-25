@@ -1,3 +1,0 @@
-= redmine_plugin_issue_analyze
-
-Description goes here
