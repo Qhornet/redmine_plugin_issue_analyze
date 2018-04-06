@@ -3,7 +3,7 @@ class IssueAnalysesController < ApplicationController
   before_filter :find_project, :authorize, :only => :index
 
   def index
-    issues = Issue.includes(:project).where(projects: { identifier: params[:project_id]})
+    issues = Issue.where(project: @project.self_and_descendants.visible.to_a)
     issues = issues.includes(:status).where(issue_statuses: { is_closed: false })
 
     data = { max_left_days: 0, count: {} }
